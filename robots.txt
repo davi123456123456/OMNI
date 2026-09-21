@@ -1,0 +1,7 @@
+# Anteprima privata: non deve finire su Google.
+# Quando il sito va online sul dominio vero, sostituire con:
+#   User-agent: *
+#   Allow: /
+#   Sitemap: https://www.omnidigitalstudio.it/sitemap.xml
+User-agent: *
+Disallow: /
