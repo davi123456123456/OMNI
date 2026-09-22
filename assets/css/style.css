@@ -643,20 +643,23 @@ html{scroll-padding-top:90px}
 .back span{transition:transform .4s var(--ease)}
 .back:hover span{transform:translateX(-3px)}
 
-/* testata e testo su una colonna sola */
-.page__head{max-width:900px}
+/* testata, testo e foto: una colonna sola, centrata nella pagina */
+.page__head{max-width:940px;margin-inline:auto;text-align:center}
 .page__head .sec-title{margin:18px 0 0}
+.page__head .sec-lead{margin-top:20px}
 
-.page__photo{margin:clamp(32px,4vw,52px) 0 0;max-width:64ch}
-.page__photo img{
-  width:100%;height:auto;border-radius:var(--r-l);
-  box-shadow:0 34px 70px -40px rgba(11,11,12,.45);
-}
-
-.prose{max-width:64ch;margin-top:clamp(30px,3.6vw,46px);display:grid;gap:clamp(18px,1.7vw,24px)}
-.prose p{font-size:17px;line-height:1.66;color:var(--ink-2)}
+.prose{max-width:880px;margin:clamp(30px,3.6vw,46px) auto 0;display:grid;gap:clamp(20px,1.9vw,26px)}
+.prose p{font-size:18.5px;line-height:1.72;color:var(--ink-2)}
 .prose p:first-child{
-  font-size:clamp(18px,1.45vw,20px);line-height:1.58;color:var(--ink);letter-spacing:-.012em;
+  font-family:"Inter Tight","Inter",sans-serif;font-weight:500;
+  font-size:clamp(21px,1.85vw,26px);line-height:1.44;letter-spacing:-.025em;color:var(--ink);
+}
+.hl{color:var(--orange);font-weight:700}
+
+.page__photo{margin:clamp(40px,5vw,64px) auto 0;max-width:700px}
+.page__photo img{
+  display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;
+  border-radius:var(--r-l);box-shadow:0 34px 70px -40px rgba(11,11,12,.45);
 }
 
 /* elenco servizi: stesse card della home */
@@ -664,30 +667,37 @@ html{scroll-padding-top:90px}
 .card h2{font-size:24px;margin-bottom:12px}
 
 .page__cta{
-  margin-top:clamp(56px,7vw,96px);padding-top:clamp(34px,4vw,48px);border-top:1px solid var(--line-soft);
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;
+  max-width:940px;margin:clamp(56px,7vw,96px) auto 0;
+  padding-top:clamp(34px,4vw,48px);border-top:1px solid var(--line-soft);
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;
 }
 .page__cta p{
   font-family:"Inter Tight","Inter",sans-serif;font-weight:600;letter-spacing:-.035em;line-height:1.08;
-  font-size:clamp(22px,2.6vw,34px);max-width:22ch;
+  font-size:clamp(22px,2.6vw,34px);max-width:24ch;
 }
-.page__cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.page__cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
 
 @media (max-width:1080px){
   .cards--3{grid-template-columns:repeat(2,1fr)}
 }
+@media (max-width:860px){
+  .prose{max-width:66ch}
+}
 @media (max-width:620px){
   .page{padding:98px 0 66px}
+  /* su telefono tutto a bandiera, come le sezioni della home */
+  .page__head{text-align:left;max-width:none}
   .page__head .sec-title{margin-top:13px}
-  .page__photo{margin-top:26px;max-width:none}
-  .prose{max-width:none;margin-top:26px;gap:16px}
-  .prose p{font-size:16px;line-height:1.62}
-  .prose p:first-child{font-size:17.5px;line-height:1.55}
+  .page__head .sec-lead{margin-top:14px;margin-inline:0}
+  .prose{max-width:none;margin-top:26px;gap:18px}
+  .prose p{font-size:16.5px;line-height:1.68}
+  .prose p:first-child{font-size:19.5px;line-height:1.38}
+  .page__photo{margin-top:32px;max-width:none}
   .cards--3{grid-template-columns:1fr;margin-top:34px}
   .card h2{font-size:20px}
-  .page__cta{margin-top:46px;padding-top:30px;flex-direction:column;align-items:flex-start;gap:20px}
+  .page__cta{margin-top:46px;padding-top:30px;align-items:flex-start;text-align:left;gap:20px}
   .page__cta p{font-size:clamp(22px,6.6vw,28px);max-width:none}
-  .page__cta-row{width:100%}
+  .page__cta-row{width:100%;justify-content:flex-start}
   .page__cta-row .btn{flex:1 1 100%}
 }
 
