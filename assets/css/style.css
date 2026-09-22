@@ -324,6 +324,8 @@ img,svg{display:block;max-width:100%}
 
 /* ---------- 9. PREZZI ---------- */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.plans__note{margin:clamp(26px,3vw,38px) auto 0;max-width:64ch;text-align:center;font-size:15.5px;line-height:1.6;color:var(--muted)}
+.plans__note strong{color:var(--ink);font-weight:600}
 .plan{position:relative;padding:36px 32px 34px;border-radius:var(--r-l);background:#fff;border:1px solid var(--line-soft);transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
 .plan:hover{transform:translateY(-8px);box-shadow:0 34px 60px -32px rgba(11,11,12,.34)}
 .plan--hot{background:var(--black);color:#fff;border-color:transparent;box-shadow:0 40px 80px -40px rgba(11,11,12,.6)}
@@ -618,4 +620,81 @@ html{scroll-padding-top:90px}
 @media (max-width:620px){
   .grain{animation:none;opacity:.28}
   .step{backdrop-filter:none}
+}
+/* =========================================================
+   PAGINE INTERNE — chi-siamo.html · altri-servizi.html
+   Riusano le primitive del sito: .sec-tag, .sec-title,
+   .sec-lead, .card — stessa scala tipografica della home.
+   ========================================================= */
+.foot__page{
+  text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;
+  text-decoration-color:rgba(255,158,27,.6);color:rgba(255,255,255,.82)!important;
+}
+.foot__page:hover{text-decoration-color:var(--orange)}
+
+.page{position:relative;padding:clamp(112px,12vw,152px) 0 clamp(72px,8vw,120px)}
+.page__inner{position:relative}
+
+.back{
+  display:flex;width:max-content;align-items:center;gap:9px;margin-bottom:clamp(26px,3.4vw,44px);
+  font-size:14px;font-weight:500;color:var(--muted);transition:color .3s,gap .3s var(--ease);
+}
+.back:hover{color:var(--ink);gap:14px}
+.back span{transition:transform .4s var(--ease)}
+.back:hover span{transform:translateX(-3px)}
+
+/* testata e testo su una colonna sola */
+.page__head{max-width:900px}
+.page__head .sec-title{margin:18px 0 0}
+
+.page__photo{margin:clamp(32px,4vw,52px) 0 0;max-width:64ch}
+.page__photo img{
+  width:100%;height:auto;border-radius:var(--r-l);
+  box-shadow:0 34px 70px -40px rgba(11,11,12,.45);
+}
+
+.prose{max-width:64ch;margin-top:clamp(30px,3.6vw,46px);display:grid;gap:clamp(18px,1.7vw,24px)}
+.prose p{font-size:17px;line-height:1.66;color:var(--ink-2)}
+.prose p:first-child{
+  font-size:clamp(18px,1.45vw,20px);line-height:1.58;color:var(--ink);letter-spacing:-.012em;
+}
+
+/* elenco servizi: stesse card della home */
+.cards--3{grid-template-columns:repeat(3,1fr);margin-top:clamp(46px,5.5vw,76px)}
+.card h2{font-size:24px;margin-bottom:12px}
+
+.page__cta{
+  margin-top:clamp(56px,7vw,96px);padding-top:clamp(34px,4vw,48px);border-top:1px solid var(--line-soft);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;
+}
+.page__cta p{
+  font-family:"Inter Tight","Inter",sans-serif;font-weight:600;letter-spacing:-.035em;line-height:1.08;
+  font-size:clamp(22px,2.6vw,34px);max-width:22ch;
+}
+.page__cta-row{display:flex;flex-wrap:wrap;gap:12px}
+
+@media (max-width:1080px){
+  .cards--3{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:620px){
+  .page{padding:98px 0 66px}
+  .page__head .sec-title{margin-top:13px}
+  .page__photo{margin-top:26px;max-width:none}
+  .prose{max-width:none;margin-top:26px;gap:16px}
+  .prose p{font-size:16px;line-height:1.62}
+  .prose p:first-child{font-size:17.5px;line-height:1.55}
+  .cards--3{grid-template-columns:1fr;margin-top:34px}
+  .card h2{font-size:20px}
+  .page__cta{margin-top:46px;padding-top:30px;flex-direction:column;align-items:flex-start;gap:20px}
+  .page__cta p{font-size:clamp(22px,6.6vw,28px);max-width:none}
+  .page__cta-row{width:100%}
+  .page__cta-row .btn{flex:1 1 100%}
+}
+
+@media (max-width:620px){
+  .plans__note{text-align:left;font-size:14.5px;max-width:none}
+}
+
+@media (max-width:620px){
+  .page__head .sec-title{font-size:clamp(32px,9vw,42px)}
 }
