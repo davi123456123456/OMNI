@@ -55,18 +55,40 @@
     if (d) el.style.setProperty("--d", d + "ms");
   });
   var io = null;
+  var mostra = function (el) {
+    /* a scheda nascosta le transizioni CSS non avanzano: in quel caso
+       si salta l'animazione e si va diretti allo stato finale */
+    if (document.hidden) el.classList.add("no-anim");
+    el.classList.add("in");
+    if (io) io.unobserve(el);
+  };
+  /* rete di sicurezza: se l'IntersectionObserver non scatta (scheda in
+     secondo piano, anteprima in iframe, prerender) il testo resterebbe
+     invisibile. Questa passata mostra tutto ciò che è già a schermo. */
+  var daMostrare = $$("[data-anim]");
+  var passata = function () {
+    if (!daMostrare.length) return;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    daMostrare = daMostrare.filter(function (el) {
+      if (el.classList.contains("in")) return false;
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.96 && r.bottom > -40) { mostra(el); return false; }
+      return true;
+    });
+  };
   if ("IntersectionObserver" in window) {
     io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.classList.add("in");
-        io.unobserve(e.target);
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+      entries.forEach(function (e) { if (e.isIntersecting) mostra(e.target); });
+    }, { threshold: 0, rootMargin: "0px 0px -4% 0px" });
     $$("[data-anim]").forEach(function (el) { io.observe(el); });
-  } else {
-    $$("[data-anim]").forEach(function (el) { el.classList.add("in"); });
   }
+  passata();
+  window.addEventListener("load", passata);
+  setTimeout(passata, 600);
+  setTimeout(passata, 1800);
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) passata(); });
+  window.addEventListener("scroll", passata, { passive: true });
+  window.addEventListener("resize", passata);
 
   /* ---------- contatori ---------- */
   var animateCount = function (el) {
@@ -267,7 +289,7 @@
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(function () {
-      onHeader(); methodScroll(); phoneScroll(); footScroll(); progressScroll();
+      onHeader(); methodScroll(); phoneScroll(); footScroll(); progressScroll(); passata();
       ticking = false;
     });
   };

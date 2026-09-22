@@ -89,11 +89,15 @@ img,svg{display:block;max-width:100%}
 .btn--full{width:100%;margin-top:26px}
 
 /* reveal states */
-[data-anim]{will-change:transform,opacity}
-[data-anim="up"]{opacity:0;transform:translateY(26px);transition:opacity .9s ease var(--d,0ms),transform 1.05s var(--ease) var(--d,0ms)}
-[data-anim="up"].in{opacity:1;transform:none}
-.w{display:inline-block;opacity:0;transform:translateY(.7em) rotate(1.5deg);filter:blur(8px);transition:opacity .75s ease,transform .95s var(--ease),filter .75s ease}
-.in .w{opacity:1;transform:none;filter:blur(0)}
+/* lo stato di partenza nascosto vale SOLO se il JS è attivo (html.js):
+   senza JS, o se lo script non parte, il testo resta comunque leggibile */
+.js [data-anim]{will-change:transform,opacity}
+.js [data-anim="up"]{opacity:0;transform:translateY(26px);transition:opacity .9s ease var(--d,0ms),transform 1.05s var(--ease) var(--d,0ms)}
+.js [data-anim="up"].in{opacity:1;transform:none}
+.w{display:inline-block}
+.js .w{opacity:0;transform:translateY(.7em) rotate(1.5deg);filter:blur(8px);transition:opacity .75s ease,transform .95s var(--ease),filter .75s ease}
+.js .in .w{opacity:1;transform:none;filter:blur(0)}
+.js .no-anim,.js .no-anim .w{transition:none!important}
 
 /* grain */
 .grain{
