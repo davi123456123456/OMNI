@@ -18,6 +18,14 @@ da mandare a chiunque: si apre da qualsiasi telefono o computer, senza login.
 Per aggiornarlo: ritrascina la cartella su vercel.com/drop, oppure **Redeploy**
 dalla dashboard del progetto.
 
+> **Trascina la cartella, non il file .zip.** Se ricevi il sito zippato,
+> aprilo prima con un doppio clic e poi trascina la cartella che ne esce:
+> trascinando lo zip il sito finisce dentro una sottocartella e l'indirizzo
+> principale risponde "404".
+
+Se il deploy va a buon fine ma vedi una pagina bianca, è quasi sempre la cache
+del browser: ricarica tenendo premuto **Shift** (o Cmd+Shift+R).
+
 ---
 
 ## 2. Cosa c'è dentro
@@ -70,10 +78,10 @@ Poi:
 
 | Dove | Cosa |
 |---|---|
-| tutte le pagine | telefono `320 119 1509`, mail `ciao@omnidigitalstudio.it`, P.IVA |
+| tutte le pagine | P.IVA (il telefono `370 138 8515` e la mail `info@omnidigitalstudio.com` sono quelli veri) |
 | hero, "Lavori", footer | **i numeri sono inventati**: +10 progetti, 100/100 PageSpeed, 18 giorni, 4.9/5, 212%, #1 su Google |
 | sezione "Lavori" | **nomi clienti e risultati inventati**: Atelier Nord, Studio Ferri, Trattoria Bo |
-| sezione "Prezzi" | le cifre 500 / 890 / 2.500 € e l'abbonamento da 50€/mese (ripetuto nella FAQ "Quanto costa") |
+| sezione "Prezzi" | le cifre: Base 500€, Plus 800€, Premium su richiesta, abbonamento 50€/60€ al mese (ripetuto nella FAQ "Quanto costa") |
 | footer | i link a Instagram e LinkedIn puntano a `#` |
 | `assets/img/logo-mark.svg` | è una ricostruzione del logo: se hai l'originale vettoriale, sostituiscilo |
 

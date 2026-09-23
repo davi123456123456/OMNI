@@ -339,6 +339,12 @@ img,svg{display:block;max-width:100%}
 .plan--hot .plan__for{color:rgba(255,255,255,.55)}
 .plan__price{font-family:"Inter Tight",sans-serif;font-size:clamp(40px,4.4vw,58px);font-weight:600;letter-spacing:-.045em;margin:24px 0 0;line-height:1}
 .plan__price span{font-size:15px;font-weight:500;color:var(--muted);letter-spacing:0;margin-right:8px;vertical-align:middle}
+/* il piano senza cifra: stessa altezza della riga del prezzo, così le
+   voci sotto restano allineate tra le tre card */
+.plan__price--ask{
+  font-size:clamp(22px,2.4vw,32px);line-height:1.15;letter-spacing:-.03em;color:var(--ink-2);
+  min-height:clamp(40px,4.4vw,58px);display:flex;align-items:center;
+}
 .plan__price em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .plan ul{margin-top:26px;padding-top:22px;border-top:1px solid var(--line-soft);display:grid;gap:12px;font-size:15px;color:var(--ink-2)}
 .plan--hot ul{border-color:rgba(255,255,255,.14);color:rgba(255,255,255,.72)}
@@ -554,6 +560,7 @@ img,svg{display:block;max-width:100%}
   .plans{gap:14px}
   .plan{padding:28px 24px 26px}
   .plan__price{font-size:40px;margin-top:18px}
+  .plan__price--ask{font-size:24px;min-height:0;margin-top:20px}
   .plan ul{margin-top:20px;padding-top:18px;font-size:14.5px}
   .plan .btn--full{margin-top:20px}
 
