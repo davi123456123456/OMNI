@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 106 96" role="img" aria-label="OMNI Digital Studio">
+  <defs>
+    <linearGradient id="omniMark" x1="10" y1="90" x2="96" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF5A00"/>
+      <stop offset="1" stop-color="#FF9E1B"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#omniMark)" stroke-width="22" stroke-linecap="butt">
+    <path d="M30 88 A30 30 0 0 1 90 88"/>
+    <path d="M12 56 L48 20"/>
+  </g>
+</svg>
